@@ -1,0 +1,68 @@
+(Inicio)
+|
+V
+[Área Solicitante] --Solicitud de Compras--> [Depósito]
+|
+V
+[Depósito] --Emite Solicitud de Compras (Original)-->
+|
+V
+[Depósito] --Archivo de Solicitud de Compras (Duplicado)-->
+|
+V
+[Depósito] --Envía Solicitud de Compras (Original)--> [Compras]
+|
+V
+[Compras] --Verifica y Emite Orden de Compra (Original)--> [Proveedor]
+|
+V
+[Compras] --Emite Orden de Compra (Duplicado)--> [Depósito]
+|
+V
+[Compras] --Archivo de Orden de Compra (Triplicado)-->
+|
+V
+[Proveedor] --Recibe Orden de Compra (Original)--> [Proveedor]
+|
+V
+[Proveedor] --Envía Bienes con Original del Remito--> [Empresa]
+|
+V
+[Depósito] --Controla Bienes con Remito y Duplicado de Orden de Compra-->
+|
+V
+[Depósito] --Firma Duplicado del Remito-->
+|
+V
+[Depósito] --Coinciden Datos y Bienes en Buen Estado?-->
+|     |
+|     V
+|   [Depósito] --Registra Stock, Distribuye Insumos--> [Depósito]
+|     |
+|     V
+|   [Depósito] --Envía Documentación a Compras--> [Compras]
+|     |
+|     V
+|   [Depósito] --No Coinciden Datos o Bienes Dañados-->
+|     |
+|     V
+|   [Depósito] --Envía Bienes con Remito Original al Proveedor-->
+|     
+V
+[Proveedor] --Emite Factura (Duplicado en su empresa)-->
+|
+V
+[Proveedor] --Envía Factura (Original)--> [Compras]
+|
+V
+[Compras] --Recibe Factura y Controla con Orden de Compra y Remito-->
+|
+V
+[Compras] --Registra Contablemente-->
+|
+V
+[Compras] --Envía Factura a Pagos-->
+|
+V
+(Fin)
+
